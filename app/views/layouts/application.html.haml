@@ -1,0 +1,27 @@
+!!!
+%html
+%head
+  %title Cidade Nossa -Rebels Corporation
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  %link{ rel: "stylesheet", href: "http://fonts.googleapis.com/css?family=Lato:300,400,700", type: "text/css"}
+  %link{:rel => "stylesheet", :href => "http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}/
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+%body
+  %header.main_header.clearfix
+    .wrapper
+      #logo
+        %p= link_to "Cidade Nossa -Rebels Corporation", root_path
+      #buttons
+        - if user_signed_in?
+          = link_to "Cadastrar novo problema", new_post_path
+        - else
+          = link_to "Entrar", new_user_registration_path
+          = link_to "Sair", new_user_session_path
+
+  .wrapper
+    %p.notice= notice
+    %p.alert= alert
+
+  .wrapper
+    = yield

@@ -1,0 +1,5 @@
+%h1 Editar Responder
+
+= simple_form_for([@post, @comment]) do |f|
+	= f.input :comment , label: false
+	= f.submit 'Enviar'

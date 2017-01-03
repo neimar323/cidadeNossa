@@ -1,0 +1,7 @@
+.comment.clearfix
+	.content
+		%p.comment_content= comment.comment .html_safe
+		%p.comment_author= comment.user.email
+	.buttons
+		= link_to "Editar", edit_post_comment_path(comment.post, comment)
+		= link_to "Deletar", [comment.post, comment], method: :delete, data: { confirm: "Tem certeza?" }

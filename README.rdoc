@@ -1,0 +1,12 @@
+= Simple Forum
+== Week 10 of my 12 in 12 Challenge
+
+My goal with this challenge is to teach myself Ruby on Rails by building a new web app (using rails) each week for 12 weeks.
+
+This week I built a simple forum application. We have the ability to sign up and sign in / out... Add, Edit, Destroy forum posts, and users can reply to each others forum posts through comments.
+
+Interested in learning how to build this application? Watch a Screencast on how I built it {here}[https://www.youtube.com/user/mackenziechild]
+
+---
+
+You can find me on {Twitter}[http://twitter.com/mackenziechild] or follow along for more Rails on my website {MackenzieChild.me}[http://mackenziechild.me]
