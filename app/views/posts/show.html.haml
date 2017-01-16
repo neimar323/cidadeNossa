@@ -1,19 +1,26 @@
 #post_content
-	%h1= @post.title
-	%p= @post.content
+  %h1= @post.title
+  %p= @post.content
 
-	#comments
-		%h2
-			= @post.comments.count
-			Comentários
-		= render @post.comments
+  #points
+  %p
+    Priorização
+    = @post.points
+    =link_to "Priorizar", prioritize_post_url(@post), class: "button"
 
-		%h3 Responder tópico
-		= render "comments/form"
+  #comments
+    %h2
+      = @post.comments.count
+      Comentários
+    = render @post.comments
 
-	%br/
-	%hr/
-	%br/
+    %h3 Responder tópico
+    = render "comments/form"
 
-	= link_to "Editar", edit_post_path(@post), class: "button"
-	= link_to "Deletar", post_path(@post), method: :delete, data: { confirm: "Tem certeza que deseja deletar?" }, class: "button"
+  %br/
+  %hr/
+  %br/
+
+
+  = link_to "Editar", edit_post_path(@post), class: "button"
+  = link_to "Deletar", post_path(@post), method: :delete, data: { confirm: "Tem certeza que deseja deletar?" }, class: "button"

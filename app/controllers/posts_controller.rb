@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-	before_action :find_post, only: [:show, :edit, :update, :destroy]
+
+  before_action :find_post, only: [:show, :edit, :update, :destroy, :prioritize]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -34,12 +35,18 @@ class PostsController < ApplicationController
 		end
 	end
 
+
 	def destroy
 		@post.destroy
 		redirect_to root_path
-	end
+  end
 
-	private
+  def prioritize
+    #@post.points++
+  end
+
+
+  private
 
 	def find_post
 		@post = Post.find(params[:id])
@@ -47,5 +54,6 @@ class PostsController < ApplicationController
 
 	def post_params
 		params.require(:post).permit(:title, :content)
-	end
+  end
+
 end
