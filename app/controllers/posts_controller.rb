@@ -42,7 +42,11 @@ class PostsController < ApplicationController
   end
 
   def prioritize
-    #@post.points++
+    #todo, fazer sem redirect
+    @post.add_point
+
+    redirect_to post_path(@post)
+
   end
 
 

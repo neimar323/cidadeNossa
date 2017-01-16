@@ -4,9 +4,13 @@
 
   #points
   %p
+    Seus pontos:
+    = current_user.points
+    %br/
     Priorização
     = @post.points
-    =link_to "Priorizar", prioritize_post_url(@post), class: "button"
+
+    =link_to "Priorizar", prioritize_post_path(@post.id), class: "button"
 
   #comments
     %h2
