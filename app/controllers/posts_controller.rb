@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@posts = Post.all.order("created_at DESC")
+		@posts = Post.all.order("points DESC,created_at DESC")
 	end
 
 	def show
@@ -43,9 +43,13 @@ class PostsController < ApplicationController
 
   def prioritize
     #todo, fazer sem redirect
-    @post.add_point
 
     redirect_to post_path(@post)
+    if not @post.add_point
+      flash[:alert] = 'Você não possui mais pontos de priorização! Entre amanha novamente e ganhe mais pontos.'
+    else
+      flash[:alert] = 'Priorizado!'
+    end
 
   end
 

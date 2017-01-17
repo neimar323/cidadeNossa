@@ -5,8 +5,14 @@ class Post < ActiveRecord::Base
 
   def add_point
 		#todo, fazer transacao atomica
-		self.update! points: self.points + 1
-		self.user.update! points: self.points - 1
+
+    if self.user.points > 0
+      self.update! points: self.points + 1
+		  self.user.update! points: self.user.points - 1
+      return true
+    else
+      return false
+    end
 	end
 
 end

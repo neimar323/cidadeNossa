@@ -12,6 +12,8 @@
     .wrapper
       #logo
         %p= link_to "Cidade Nossa -Rebels Corporation", root_path
+        Meus pontos de priorizaçao:
+        = current_user.points
       #buttons
         - if user_signed_in?
           = link_to "Cadastrar novo problema", new_post_path
